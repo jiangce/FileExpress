@@ -1,0 +1,2 @@
+global-include *.ini
+global-exclude log.txt*
