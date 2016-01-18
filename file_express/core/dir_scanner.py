@@ -1,31 +1,30 @@
 # -*- coding: utf-8 -*-
 
 from .scanner_base import ScannerBase
-import fnmatch
+import os
 
 
 class DirScanner(ScannerBase):
-    def __init__(self, name, _filter=None):
-        super(DirScanner, self).__init__(name)
-        if isinstance(_filter, str):
-            _filter = {_filter}
-        elif isinstance(_filter, (tuple, list, set)):
-            _filter = set(_filter)
-        else:
-            _filter = {'*'}
-        self.__filter_set__ = _filter
-
-    def filter(self, file_name):
-        return any([fnmatch.fnmatch(file_name, f) for f in self.__filter_set__])
+    def __init__(self, name, scan_dir, filters=None):
+        super(DirScanner, self).__init__(name, filters)
+        self.scan_dir = scan_dir
 
     def scan_files(self):
-        pass
+        return [name for name in os.listdir(self.scan_dir) if os.path.isfile(os.path.join(self.scan_dir, name))]
 
     def exists(self, file_name):
-        pass
+        return os.path.exists(os.path.join(self.scan_dir, file_name))
 
     def obtain_file(self, file_name, target_fullname):
-        pass
+        try:
+            os.rename(os.path.join(self.scan_dir, file_name), target_fullname)
+            return True
+        except:
+            return False
 
     def delete_file(self, file_name):
-        pass
+        try:
+            os.remove(os.path.join(self.scan_dir, file_name))
+            return True
+        except:
+            return False

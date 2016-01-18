@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from com_tf.lib.com import Com
+from file_express.core.dir_scanner import DirScanner
+from file_express.core.dir_emitter import DirEmitter
+from file_express.core.manager import ExpressManager
 
+scanner = DirScanner('test', r'C:\togeek\test\1', '*')
+emitter = DirEmitter(r'C:\togeek\test\2', '*', '*')
 
-def test():
-    com = Com()
-    print(com.read_lock is com.lock)
+manager = ExpressManager()
+manager.add_scanners(scanner)
+manager.add_emitters(emitter)
 
-
-if __name__ == '__main__':
-    test()
+manager.scan()
+manager.emit()

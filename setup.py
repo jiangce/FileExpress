@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup, find_packages
-from com_tf import version
+from file_express import version
 
 setup(
         name='file_express',
