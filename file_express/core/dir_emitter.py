@@ -6,7 +6,7 @@ import shutil
 
 
 class DirEmitter(EmitterBase):
-    def __init__(self, emit_dir, scanner_names, filters):
+    def __init__(self, emit_dir, scanner_names=None, filters=None):
         super(DirEmitter, self).__init__(scanner_names, filters)
         self.__emit_dir__ = emit_dir
 
