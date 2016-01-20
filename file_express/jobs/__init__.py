@@ -11,3 +11,4 @@ def init_jobs():
     manager = config.get_express_manager()
     js.add_interval_job('scan', seconds=1, func_args=[manager])
     js.add_interval_job('emit', seconds=1, func_args=[manager])
+    js.add_interval_job('del_backup', hours=1)

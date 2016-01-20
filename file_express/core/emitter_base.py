@@ -26,7 +26,7 @@ class EmitterBase(metaclass=abc.ABCMeta):
 
     @abc.abstractmethod
     def rename_file(self, old_file_name, new_file_name):
-        return True
+        pass
 
     @abc.abstractmethod
     def emit_file(self, source_fullname, target_name):

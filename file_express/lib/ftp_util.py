@@ -23,9 +23,20 @@ class FTP(object):
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.close()
 
+    @property
+    def connected(self):
+        if '_ftp' in self.__dict__:
+            try:
+                self._ftp.pwd()
+                return True
+            except:
+                self.close()
+                return False
+        return False
+
     def close(self):
         """关闭ftp连接"""
-        if '_ftp' not in self.__dict__.keys():
+        if '_ftp' not in self.__dict__:
             return
         try:
             self._ftp.quit()

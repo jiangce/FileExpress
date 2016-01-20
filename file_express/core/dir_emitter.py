@@ -11,8 +11,8 @@ class DirEmitter(EmitterBase):
         self.__emit_dir__ = emit_dir
 
     def rename_file(self, old_file_name, new_file_name):
-        return os.rename(os.path.join(self.__emit_dir__, old_file_name),
-                         os.path.join(self.__emit_dir__, new_file_name))
+        os.rename(os.path.join(self.__emit_dir__, old_file_name),
+                  os.path.join(self.__emit_dir__, new_file_name))
 
     def emit_file(self, source_fullname, target_name):
         try:

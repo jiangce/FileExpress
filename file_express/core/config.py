@@ -6,10 +6,14 @@ from ..manager.env import Environment
 from ..lib.singleton import Singleton
 from .manager import ExpressManager
 from .dir_scanner import DirScanner
+from .ftp_scanner import FtpScanner
 from .dir_emitter import DirEmitter
+from .ftp_emitter import FtpEmitter
 
 __mapping__ = {'dir_scanner': DirScanner,
-               'dir_emitter': DirEmitter}
+               'ftp_scanner': FtpScanner,
+               'dir_emitter': DirEmitter,
+               'ftp_emitter': FtpEmitter}
 
 
 class Config(metaclass=Singleton):
