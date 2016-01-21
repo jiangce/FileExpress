@@ -2,13 +2,13 @@
   "scanners": [
     {
       "type": "dir_scanner",
-      "name": "test1",
-      "scan_dir": "c:\\togeek\\scan\\1",
+      "name": "forward",
+      "scan_dir": "c:\\togeek\\com\\receive",
       "filters": "*"
     },
     {
       "type": "ftp_scanner",
-      "name": "test2",
+      "name": "reverse",
       "scan_dir": "/send",
       "filters": "*",
       "ftp_ip": "192.168.253.1",
@@ -19,14 +19,14 @@
   "emitters": [
     {
       "type": "dir_emitter",
-      "emit_dir": "c:\\togeek\\emit",
-      "scanner_names": "*",
+      "emit_dir": "c:\\togeek\\com\\send",
+      "scanner_names": "reverse",
       "filters": "*"
     },
     {
       "type": "ftp_emitter",
       "emit_dir": "/receive",
-      "scanner_names": "*",
+      "scanner_names": "forward",
       "filters": "*",
       "ftp_ip": "192.168.253.1",
       "ftp_name": "togeek",
