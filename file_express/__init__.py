@@ -7,7 +7,7 @@ from .manager.sch import JobScheduler
 from .manager.log import Log
 from .jobs import init_jobs
 
-version = '1.0.0'
+version = '1.0.1'
 env = Environment()
 
 

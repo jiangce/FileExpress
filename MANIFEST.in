@@ -1,2 +1,2 @@
-global-include *.ini
+global-include *.json
 global-exclude log.txt*

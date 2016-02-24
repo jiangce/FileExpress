@@ -2,8 +2,8 @@
 
 import psutil
 import os
-from .lib.singleton import Singleton
-from .manager.env import Environment
+from file_express.lib.singleton import Singleton
+from file_express.manager.env import Environment
 
 
 class FileExpressWatch(metaclass=Singleton):
